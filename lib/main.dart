@@ -1,8 +1,7 @@
 // ignore_for_file: sized_box_for_whitespace
 
-import 'package:expense/transactions.dart';
+import 'package:expense/widgets/user_transaction_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -13,12 +12,8 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  final List<Transaction> transaction = [
-    Transaction(
-        id: "T1", title: "ToothBrush", amount: 12.00, date: DateTime.now()),
-    Transaction(
-        id: "T2", title: "ToothPaste", amount: 69.00, date: DateTime.now()),
-  ];
+  final titleController = TextEditingController();
+  final amountController = TextEditingController();
 
   MyApp({Key? key}) : super(key: key);
 
@@ -26,70 +21,23 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Flutter App"),
+        title: const Text("Expense App"),
       ),
-      body: Column(
-        children: <Widget>[
-          Container(
-            width: double.infinity,
-            child: const Card(
-              child: Text(
-                "data",
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            Container(
+              width: double.infinity,
+              child: const Card(
+                child: Text(
+                  "Chart",
+                ),
+                elevation: 5,
               ),
-              elevation: 5,
             ),
-          ),
-          Column(
-            children: transaction.map((trans) {
-              return Card(
-                  elevation: 5,
-                  child: Row(
-                    children: [
-                      Container(
-                        padding: const EdgeInsets.all(10),
-                        margin: const EdgeInsets.symmetric(
-                          vertical: 10,
-                          horizontal: 15,
-                        ),
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            color: Colors.black,
-                            width: 2,
-                          ),
-                        ),
-                        child: Text(
-                          '₹${trans.amount}',
-                          style: const TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20,
-                            color: Colors.purple,
-                          ),
-                        ),
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            trans.title,
-                            style: const TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.w700,
-                            ),
-                          ),
-                          Text(
-                            DateFormat('EEE, d/M/y').format(trans.date),
-                            style: const TextStyle(
-                              fontWeight: FontWeight.w500,
-                              color: Colors.grey,
-                            ),
-                          ),
-                        ],
-                      )
-                    ],
-                  ));
-            }).toList(),
-          )
-        ],
+            UserTransactionsController(),
+          ],
+        ),
       ),
     );
   }

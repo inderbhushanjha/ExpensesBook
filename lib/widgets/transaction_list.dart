@@ -7,10 +7,12 @@ class TransactionList extends StatelessWidget {
 
   TransactionList(this.transactions);
 
+  var f = NumberFormat("##,##,##,##,###.0#", "en_US");
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 450,
+      height: 700,
       child: ListView.builder(
         itemBuilder: (ctx, index) {
           return Card(
@@ -30,11 +32,11 @@ class TransactionList extends StatelessWidget {
                     ),
                   ),
                   child: Text(
-                    '₹${transactions[index].amount.toStringAsFixed(2)}',
-                    style: const TextStyle(
+                    '₹${f.format(transactions[index].amount).toString()}',
+                    style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
-                      color: Colors.purple,
+                      color: Theme.of(context).primaryColor,
                     ),
                   ),
                 ),

@@ -8,6 +8,7 @@ void main() {
   runApp(MaterialApp(
     theme: ThemeData(
       primarySwatch: Colors.red,
+      fontFamily: "Quicksand",
     ),
     debugShowCheckedModeBanner: false,
     title: "Personal Expense",
@@ -24,10 +25,10 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   final List<Transaction> _userTransactions = [
-    Transaction(
-        id: "T1", title: "ToothBrush", amount: 12.00, date: DateTime.now()),
-    Transaction(
-        id: "T2", title: "ToothPaste", amount: 69.00, date: DateTime.now()),
+    // Transaction(
+    //     id: "T1", title: "ToothBrush", amount: 12.00, date: DateTime.now()),
+    // Transaction(
+    //     id: "T2", title: "ToothPaste", amount: 69.00, date: DateTime.now()),
   ];
 
   void _addNewTransaction(String txTitle, double txAmount) {

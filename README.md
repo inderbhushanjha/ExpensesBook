@@ -1,5 +1,5 @@
 # Custom Rom
-![sc](./images/sc.jpg)
+![sc](https://nordvpn.com/wp-content/uploads/android-vs-ios_1200x675.jpg)
 ### Project live at [Visit](https://mukeshcs2018.github.io/CustomRom/).
 
 ### Topic suggestions
